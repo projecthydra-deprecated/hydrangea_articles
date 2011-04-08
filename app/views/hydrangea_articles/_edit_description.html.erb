@@ -87,12 +87,14 @@
 
 		<input name="_method" type="hidden" value="put" />
 		<!-- Careful! Submitting this hidden input will release the article.  -->
-			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>			
-		  <% if @document_fedora.ready_to_release? %>
-		    	<%= button_to 'Submit', {},{:id => "submitForRelease"} %>		
-		  <% else %>
-		    	<%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>		
-		  <% end %>	
+			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>		
+			<%= button_to 'Submit', {},{:id => "submitForRelease"} %>   
+        
+      <!-- <% if @document_fedora.ready_to_release? %>
+          <%= button_to 'Submit', {},{:id => "submitForRelease"} %>   
+      <% else %>
+          <%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>    
+      <% end %>  -->
 
 
 </form>
