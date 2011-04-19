@@ -9,7 +9,7 @@
 <%- released_values = @document_fedora.datastreams["properties"].released_values %>
 
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
-<input name="_method" type="hidden" value="put" />
+    <input name="_method" type="hidden" value="put" />
 
     <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
