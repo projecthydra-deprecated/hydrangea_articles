@@ -5,6 +5,7 @@ class ContributorsController < ApplicationController
   include MediaShelf::ActiveFedoraHelper
   before_filter :require_solr, :require_fedora
   
+  # Display form for adding a new Contributor
   # If contributor_type is provided, renders the appropriate "new" form
   # If contributor_type is not provided, renders a form for selecting which type of contributor to add
   # If format is .inline, this renders without layout so you can embed it in a page
@@ -28,7 +29,6 @@ class ContributorsController < ApplicationController
     ct = params[:contributor_type]
     inserted_node, new_node_index = @document_fedora.insert_contributor(ct)
     @document_fedora.save
-    debugger
     partial_name = "contributors/edit_#{ct}.html"
     respond_to do |format|
       format.html { redirect_to( url_for(:controller=>"catalog", :action=>"edit", :id=>params[:asset_id] )+"##{params[:contributor_type]}_#{new_node_index}" ) }
