@@ -11,7 +11,7 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article")%>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
     <input name="_method" type="hidden" value="put" />
 
-    <input id="content_type" type="hidden" name="content_type" value="hydrangea_article" />
+    <input class="content_type" type="hidden" name="content_type" value="hydrangea_article" />
 
 		<fieldset id="contributors_fields">
 		<legend>Authors
@@ -88,15 +88,7 @@
 		<input name="_method" type="hidden" value="put" />
 		<!-- Careful! Submitting this hidden input will release the article.  -->
 			<%= tag(:input, :type=>"hidden", :name=>"asset[properties][released][0]", :value=>"true")%>		
-			<%= button_to 'Save Description', {},{:id => "saveDescription"} %>   
-        
-      <!-- <% if @document_fedora.ready_to_release? %>
-          <%= button_to 'Submit', {},{:id => "submitForRelease"} %>   
-      <% else %>
-          <%= button_to 'Submit', {},{:id => "submitForRelease", :disabled => "disabled"} %>    
-      <% end %>  -->
-
-
+			<%= submit_tag 'Save Description', {:id => "saveDescription"} %>   
 </form>
 
 <%= render :partial => "shared/delete_asset_confirmation", :locals => {:pid => params[:id], :title => (get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first.empty? ? "this article" : "'" << get_values_from_datastream(@document_fedora,"descMetadata", [:title_info, :main_title]).first << "'")  } %>

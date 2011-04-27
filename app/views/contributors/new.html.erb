@@ -6,7 +6,7 @@
   <form id="add_contributor" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_article", :id=>params[:asset_id]) %>" method="post" data-resourceType="hydrangea_article" accept-charset="utf-8">
       <input name="_method" type="hidden" value="put" />  
       <%= render :partial=>"contributors/edit_#{ct}.html", :locals=>{"edit_#{ct}".to_sym =>{}, "edit_#{ct}_counter".to_sym =>new_contributor_index}  %>
-      <%= button_to "Add #{ct.capitalize}", {}, {:id => "addContributor"} %> 
+      <%= submit_tag "Add #{ct.capitalize}", {:id => "addContributor"} %> 
   </form>
 <%- else %>
   <%= render :partial=>"contributors/new.html"  %>
